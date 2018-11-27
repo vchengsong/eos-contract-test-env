@@ -8,14 +8,14 @@ start_keosd(){
     killall keosd 2>/dev/null
     rm -rf ${WALLET_DIR}
     mkdir ${WALLET_DIR}
-    nohup keosd -d ${WALLET_DIR} --unlock-timeout 1000000 1>/dev/null  2>/dev/null &
+    nohup keosd --wallet-dir ${WALLET_DIR} --unlock-timeout 90000 1>/dev/null  2>/dev/null &
 }
 start_keosd
 
 
 create_wallet(){
     rm -rf ~/eosio-wallet/
-    cleos wallet create --to-console
+    cleos wallet create -f ${WALLET_DIR}/password.txt
     cleos wallet import --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 }
 create_wallet
