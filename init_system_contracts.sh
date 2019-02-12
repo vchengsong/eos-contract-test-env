@@ -55,5 +55,15 @@ create_one(){
     cleos system newaccount \
         --stake-net "1000.0000 EOS" --stake-cpu "1000.0000 EOS" --buy-ram "1000.0000 EOS" \
         firstaccount $1 $pub_key $pub_key -p firstaccount
+    cleos transfer firstaccount $1 "100.0000 EOS"
     import_key $pri_key
+}
+
+create_account(){
+    name=$1
+    pub_key=$2
+    cleos system newaccount \
+        --stake-net "1000.0000 EOS" --stake-cpu "1000.0000 EOS" --buy-ram "1000.0000 EOS" \
+        firstaccount $name $pub_key $pub_key -p firstaccount
+    cleos transfer firstaccount $1 "100.0000 EOS"
 }
