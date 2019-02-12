@@ -1,4 +1,4 @@
-eos-shell-test-env
+eos-contract-test-env
 -----
 
 
